@@ -19,6 +19,9 @@ export default function TabTwoScreen() {
           style={styles.headerImage}
         />
       }>
+
+
+        {/* test */}
         
       <ThemedView style={styles.titleContainer}>
         <ThemedText type="title">Explore</ThemedText>
