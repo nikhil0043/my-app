@@ -116,6 +116,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
+    width: 'auto',
   },
   text: {
     fontSize: 14,

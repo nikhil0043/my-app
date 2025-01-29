@@ -1,9 +1,14 @@
-import { Image, StyleSheet, Platform } from 'react-native';
+import { Image, StyleSheet, Platform, View } from 'react-native';
 
 import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import { ScrollView } from 'react-native-gesture-handler';
+import { AdmissionCard } from '@/components/admission';
+import { EventCard } from '@/components/event-card';
+import { RatingsCard } from '@/components/rating-card';
+import { OrganizerCard } from '@/components/organizer-card';
 
 export default function HomeScreen() {
   return (
@@ -11,11 +16,13 @@ export default function HomeScreen() {
       headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
       headerImage={
         <Image
-          source={require('@/assets/images/partial-react-logo.png')}
+          source={{ uri: 'https://img.freepik.com/premium-vector/beautiful-landscape-nature-background-images-free-download-freepik-vector_1305309-87.jpg' }}
           style={styles.reactLogo}
         />
       }>
-      <ThemedView style={styles.titleContainer}>
+      <App />
+
+      {/* <ThemedView style={styles.titleContainer}>
         <ThemedText type="title">Welcome!</ThemedText>
         <HelloWave />
       </ThemedView>
@@ -49,10 +56,31 @@ export default function HomeScreen() {
           <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
           <ThemedText type="defaultSemiBold">app-example</ThemedText>.
         </ThemedText>
-      </ThemedView>
+      </ThemedView> */}
     </ParallaxScrollView>
   );
 }
+
+function App() {
+  return (
+    <View style={styles2.content}>
+      <AdmissionCard />
+      <EventCard />
+      <RatingsCard />
+      <OrganizerCard />
+    </View>
+  )
+}
+
+const styles2 = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#F3F5F5",
+  },
+  content: {
+    padding: 2,
+  },
+})
 
 const styles = StyleSheet.create({
   titleContainer: {
@@ -65,8 +93,8 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   reactLogo: {
-    height: 178,
-    width: 290,
+    height: 300,
+    width: '100%',
     bottom: 0,
     left: 0,
     position: 'absolute',
